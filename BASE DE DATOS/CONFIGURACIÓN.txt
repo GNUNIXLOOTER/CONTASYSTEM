@@ -1,0 +1,8 @@
+nombre de la base de datos debe ser ventas 3
+host: localhost
+hospassword: sin clave
+hostuser: root
+
+
+usuario de ingreso: admin
+clave: admin

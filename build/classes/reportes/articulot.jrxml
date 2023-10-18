@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fnombres" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="24005f01-5d32-4fa6-a88d-22c3ecd5e363">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select  f.cod_cliente,
+f.cod_factura,
+f.cod_empleado,
+f.fecha,
+rf.Total,
+c.nombres,
+e.nombres as nombre
+
+from factura f
+inner join referencia_factura rf on f.cod_factura=rf.cod_factura
+inner join cliente c on f.cod_cliente=c.cod_cliente
+inner join empleado e on f.cod_empleado=e.cod_empleado
+
+where c.nombres  = "manuel" group by f.cod_factura]]>
+	</queryString>
+	<field name="cod_cliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_factura" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cod_empleado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String"/>
+	<group name="cod_factura">
+		<groupExpression><![CDATA[$F{cod_factura}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<line>
+				<reportElement uuid="ce9666c3-4e87-47ff-a79c-e4e02f842cba" x="321" y="33" width="205" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="e5653728-9a27-440f-91b1-92e239defc79" x="359" y="23" width="122" height="21"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[REPORTE ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e5653728-9a27-440f-91b1-92e239defc79" x="344" y="34" width="157" height="21"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DE TODOS LOS ARTICULOS]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="1d0174ec-a793-4b7a-a233-77a65b34cf98" x="0" y="0" width="112" height="59"/>
+				<imageExpression><![CDATA["C:\\xampp\\htdocs\\img\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4bf662f2-9623-41de-9885-af49cbebd924" x="443" y="10" width="112" height="20"/>
+				<textElement/>
+				<text><![CDATA[VALOR UNITARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d6cc798a-0969-46ff-abcd-b431673886fe" x="82" y="10" width="361" height="20"/>
+				<textElement/>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="043a9d79-0072-41e2-b38b-5b5acbff0593" x="0" y="10" width="82" height="20"/>
+				<textElement/>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement uuid="a96d4d7d-570f-4609-ad50-15e6f4cc766e" x="0" y="21" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="fdf1f3ed-9efb-46d7-851b-e2d2512d539a" x="0" y="0" width="82" height="20"/>
+				<textElement/>
+				<text><![CDATA[cod_articulo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="13bbb8c2-ffc5-473a-82ad-067c4c7964d7" x="82" y="0" width="179" height="20"/>
+				<textElement/>
+				<text><![CDATA[referencia]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
